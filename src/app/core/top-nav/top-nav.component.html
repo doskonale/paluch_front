@@ -1,0 +1,16 @@
+<div class="top-nav">
+  <div href="#aktualnosci">Aktualności</div>
+  <div href="#oplaty">Opłaty</div>
+  <div href="#kontakt">Kontakt</div>
+  <div href="#my">O nas</div>
+</div>
+
+<div class="top-nav-mobile">
+  <img src="../assets/menu_mobile.png" style="object-fit: contain; height: 50px;" (click)='toggleNav()'>
+  <div *ngIf="showMenu" class="top-nav-collapse">
+    <div href="#aktualnosci">Aktualności</div>
+    <div href="#oplaty">Opłaty</div>
+    <div href="#kontakt">Kontakt</div>
+    <div href="#my">O nas</div>
+  </div>
+</div>
