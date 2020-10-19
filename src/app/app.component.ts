@@ -1,7 +1,4 @@
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
-import { fromEvent } from 'rxjs';
-
-
 
 @Component({
   selector: 'app-root',
@@ -15,11 +12,7 @@ export class AppComponent implements AfterViewInit {
   title = 'paluch';
 
   ngAfterViewInit(): void {
-    fromEvent(document.body, 'mousemove').subscribe(e => {
-      // console.log(this.headerImg);
-      // this.headerImg.nativeElement.style.backgroundPositionY = Math.sqrt(e.clientY) + 'px';
-      // this.headerImg.nativeElement.style.backgroundPositionX = Math.sqrt(e.clientX) + 'px';
-    });
+
   }
 
 }
