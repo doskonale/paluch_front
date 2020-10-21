@@ -2,7 +2,7 @@
   cursor: context-menu;
   width: 100%;
   height: 100%;
-  font-family: 'Helvetica';
+  // font-family: 'Helvetica';
   line-height: 150%;
   font-size: large;
   display: flex;
@@ -43,9 +43,9 @@
 }
 
 .content {
+  margin: 20px;
   background: white;
-  width: 60%;
-  padding: 20px;
+  width: 95%;
   -webkit-box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.75);
   -moz-box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.75);
   box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.75);
@@ -60,5 +60,8 @@
 @media (max-width: 800px) {
   .header-background {
     display: none;
+  }
+  .content {
+    width: 95%;
   }
 }

@@ -1,16 +1,28 @@
 <div class="top-nav">
-  <div href="#aktualnosci">Aktualności</div>
-  <div href="#oplaty">Opłaty</div>
-  <div href="#kontakt">Kontakt</div>
-  <div href="#my">O nas</div>
+  <div style="display: flex; flex: 1;align-items: baseline;">
+    <div style="width: 100%; background: white;" (mouseenter)='toggleSubMenu()' (mouseleave)='toggleSubMenu()'>
+      <div class="nav-cell">Informacje</div>
+      <div [hidden]='!showSubMenu'>
+        <div class="nav-cell" routerLink="/zagospodarowanie_terenu">Zagospodarowanie terenu</div>
+        <div class="nav-cell" routerLink="/plan">Plan Ogrodu</div>
+        <div class="nav-cell" routerLink="/parking">Parking</div>
+      </div>
+
+    </div>
+  </div>
+  <div class="nav-cell" routerLink="/aktualnosci">Aktualności</div>
+  <div class="nav-cell" routerLink="/oplaty">Opłaty</div>
+  <div class="nav-cell" routerLink="/kontakt">Kontakt</div>
+  <div class="nav-cell" routerLink="/o_nas">O nas</div>
 </div>
 
 <div class="top-nav-mobile">
   <img src="../assets/menu_mobile.png" style="object-fit: contain; height: 50px;" (click)='toggleNav()'>
   <div *ngIf="showMenu" class="top-nav-collapse">
-    <div href="#aktualnosci">Aktualności</div>
-    <div href="#oplaty">Opłaty</div>
-    <div href="#kontakt">Kontakt</div>
-    <div href="#my">O nas</div>
+    <div routerLink="/aktualnosci">Aktualności</div>
+    <div>Informacje</div>
+    <div routerLink="/oplaty">Opłaty</div>
+    <div routerLink="/kontakt">Kontakt</div>
+    <div routerLink="/o_nas">O nas</div>
   </div>
 </div>

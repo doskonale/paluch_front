@@ -7,12 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopNavComponent implements OnInit {
   showMenu = false;
+  showSubMenu = false;
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  toggleSubMenu(): void {
+    this.showSubMenu = !this.showSubMenu;
+  }
   toggleNav(): void {
     this.showMenu = !this.showMenu;
   }
