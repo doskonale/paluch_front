@@ -6,11 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./plan.component.scss']
 })
 export class PlanComponent implements OnInit {
-  pdfSrc = 'assets/PLAN-ROD-Paluch-Miejski.pdf';
-
+  pdfSrc = 'assets/documents/PLAN-ROD-Paluch-Miejski.pdf';
+  zoom = 0.2;
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  zoomIn(): void {
+    this.zoom += 0.1;
+  }
+  zoomOut(): void {
+    this.zoom -= 0.1;
+  }
 }

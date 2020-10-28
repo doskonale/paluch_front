@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TopNavComponent } from './core/top-nav/top-nav.component';
-import { SideNavComponent } from './core/side-nav/side-nav.component';
 import { FooterComponent } from './core/footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
@@ -16,12 +15,13 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { ParkingComponent } from './pages/parking/parking.component';
 import { PlanComponent } from './pages/plan/plan.component';
 import { LanduseComponent } from './pages/landuse/landuse.component';
+import { HeaderComponent } from './core/header/header.component';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
     AppComponent,
     TopNavComponent,
-    SideNavComponent,
     FooterComponent,
     AboutComponent,
     ContactComponent,
@@ -29,13 +29,15 @@ import { LanduseComponent } from './pages/landuse/landuse.component';
     PaymentComponent,
     ParkingComponent,
     PlanComponent,
-    LanduseComponent
+    LanduseComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatProgressSpinnerModule,
+    MatButtonModule,
     PdfViewerModule,
   ],
   providers: [],

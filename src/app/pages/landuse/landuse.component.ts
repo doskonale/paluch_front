@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./landuse.component.scss']
 })
 export class LanduseComponent implements OnInit {
-  pdfSrc = 'assets/ZAGOSPODAROWANIE-DZIAŁKI.pdf';
+  pdfSrc = 'assets/documents/ZAGOSPODAROWANIE-DZIAŁKI.pdf';
 
   constructor() { }
 

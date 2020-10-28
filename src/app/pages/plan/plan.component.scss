@@ -1,0 +1,15 @@
+@import "/src/_variables.scss";
+
+button {
+  width: 50%;
+  background: $base_color_light;
+}
+button:hover {
+  width: 50%;
+  background: $base_color_dark;
+}
+.link {
+  width: 100%;
+  padding: 20px;
+  text-align: center;
+}

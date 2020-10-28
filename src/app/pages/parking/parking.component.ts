@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./parking.component.scss']
 })
 export class ParkingComponent implements OnInit {
-  pdfSrc = 'assets/Całkowity-zakaz-parkowania-w-alejkach-ogrodowych-2.pdf';
+  pdfSrc = 'assets/documents/Całkowity-zakaz-parkowania-w-alejkach-ogrodowych-2.pdf';
 
   constructor() { }
 

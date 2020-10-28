@@ -1,1 +1,6 @@
-<pdf-viewer [src]="pdfSrc" [zoom]="0.2" [render-text]="true" style="display: block;"></pdf-viewer>
+<div class="link">
+  <a href="assets/documents/PLAN-ROD-Paluch-Miejski.pdf" target="_blank">PLAN-ROD-Paluch-Miejski.pdf</a>
+</div>
+<button mat-button (click)="zoomIn()"><img src="assets/icons/zoom_in-24px.svg"></button>
+<button mat-button (click)="zoomOut()"><img src="assets/icons/zoom_out-24px.svg"></button>
+<pdf-viewer [src]="pdfSrc" [zoom]="zoom" [render-text]="true" style="display: block;"></pdf-viewer>

@@ -1,3 +1,15 @@
+@import "/src/_variables.scss";
+
+@keyframes menu {
+  0%   {
+    background:
+    linear-gradient(-45deg, transparent 85%,$base_color 0%),
+    linear-gradient(-135deg, transparent 85%,$base_color 0%),
+  }
+  50% {
+    background: $base_color_dark;
+  }
+}
 
 :host {
   width: 100%;
@@ -12,6 +24,7 @@
   display: flex;
   justify-content: flex-start;
   height: 50px;
+  font-family: 'Courgette', cursive;
 }
 
 
@@ -35,15 +48,16 @@
   border-top: 1px solid lightgray;
   justify-content: center;
   align-items: center;
+  color: black;
   background:
-  linear-gradient(45deg, transparent 20%, rgba(117, 138, 109,0.1) 0%),
-  linear-gradient(-45deg, transparent 80%, rgba(117, 138, 109, 0.05) 0%),
+  linear-gradient(-45deg, transparent 85%,$base_color 0%),
+  linear-gradient(-135deg, transparent 85%,$base_color 0%),
 }
 
 
 .nav-cell {
   height: 50px;
-  background: white;
+  color: black;
   flex: 1;
   display: flex;
   align-items: center;
@@ -52,14 +66,15 @@
   -moz-box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.75);
   box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.75);
   background:
-  linear-gradient(45deg, transparent 20%, rgba(117, 138, 109,0.1) 0%),
-  linear-gradient(-45deg, transparent 80%, rgba(117, 138, 109, 0.05) 0%),
+  linear-gradient(-45deg, transparent 85%,$base_color 0%),
+  linear-gradient(-135deg, transparent 85%,$base_color 0%),
 }
 
 .nav-cell:hover {
-  background:
-  linear-gradient(45deg, transparent 20%, rgba(117, 138, 109,0.4) 0%),
-  linear-gradient(-45deg, transparent 80%, rgba(117, 138, 109, 0.2) 0%),
+  animation-name: menu;
+  animation-duration: 0.3s;
+  color: white;
+  background: $base_color_dark;
 }
 
 @media (max-width: 800px) {
