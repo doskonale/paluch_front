@@ -2,9 +2,7 @@
 
 @keyframes menu {
   0%   {
-    background:
-    linear-gradient(-45deg, transparent 85%,$base_color 0%),
-    linear-gradient(-135deg, transparent 85%,$base_color 0%),
+    background: $base_color_light;
   }
   50% {
     background: $base_color_dark;
@@ -49,9 +47,7 @@
   justify-content: center;
   align-items: center;
   color: black;
-  background:
-  linear-gradient(-45deg, transparent 85%,$base_color 0%),
-  linear-gradient(-135deg, transparent 85%,$base_color 0%),
+  background: white;
 }
 
 
@@ -65,14 +61,12 @@
   -webkit-box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.75);
   -moz-box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.75);
   box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.75);
-  background:
-  linear-gradient(-45deg, transparent 85%,$base_color 0%),
-  linear-gradient(-135deg, transparent 85%,$base_color 0%),
+  background: white;
 }
 
 .nav-cell:hover {
   animation-name: menu;
-  animation-duration: 0.3s;
+  animation-duration: 0.5s;
   color: white;
   background: $base_color_dark;
 }
