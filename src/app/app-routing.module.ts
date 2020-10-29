@@ -5,12 +5,13 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { LanduseComponent } from './pages/landuse/landuse.component';
 import { NewsComponent } from './pages/news/news.component';
 import { ParkingComponent } from './pages/parking/parking.component';
-import { PaymentComponent } from './pages/payment/payment.component';
 import { PlanComponent } from './pages/plan/plan.component';
+import { TemplatesComponent } from './pages/templates/templates.component';
 
 const routes: Routes = [
+  { path: '',   redirectTo: '/aktualnosci', pathMatch: 'full' },
   { path: 'aktualnosci', component: NewsComponent },
-  { path: 'oplaty', component: PaymentComponent },
+  { path: 'dokumenty', component: TemplatesComponent },
   { path: 'o_nas', component: AboutComponent },
   { path: 'kontakt', component: ContactComponent },
   { path: 'parking', component: ParkingComponent },

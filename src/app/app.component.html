@@ -3,6 +3,7 @@
   <app-header></app-header>
   <app-top-nav></app-top-nav>
   <div class="content">
+    <mat-progress-bar *ngIf="loading" mode="indeterminate" color="accent"></mat-progress-bar>
     <router-outlet></router-outlet>
   </div>
 

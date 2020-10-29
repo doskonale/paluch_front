@@ -11,7 +11,7 @@
     </div>
   </div>
   <div class="nav-cell" routerLink="/aktualnosci">Aktualności</div>
-  <div class="nav-cell" routerLink="/oplaty">Opłaty</div>
+  <div class="nav-cell" routerLink="/dokumenty">Dokumenty</div>
   <div class="nav-cell" routerLink="/kontakt">Kontakt</div>
   <div class="nav-cell" routerLink="/o_nas">O nas</div>
 </div>
@@ -19,10 +19,17 @@
 <div class="top-nav-mobile">
   <img src="../assets/img/menu_mobile.svg" style="object-fit: contain; height: 50px;" (click)='toggleNav()'>
   <div *ngIf="showMenu" class="top-nav-collapse">
-    <div routerLink="/aktualnosci">Aktualności</div>
-    <div>Informacje</div>
-    <div routerLink="/oplaty">Opłaty</div>
-    <div routerLink="/kontakt">Kontakt</div>
-    <div routerLink="/o_nas">O nas</div>
+    <div (click)="toggleNav()" routerLink="/aktualnosci">Aktualności</div>
+    <div (click)="toggleMobileSubMenu()">
+      Informacje
+      <img *ngIf='!showMobileSubMenu' src="assets/icons/keyboard_arrow_down-24px.svg">
+      <img *ngIf='showMobileSubMenu' src="assets/icons/keyboard_arrow_up-24px.svg">
+    </div>
+    <div class="sub-menu" *ngIf='showMobileSubMenu' (click)="toggleNav()" routerLink="/zagospodarowanie_terenu">Zagospodarowanie terenu</div>
+    <div class="sub-menu" *ngIf='showMobileSubMenu' (click)="toggleNav()" routerLink="/plan">Plan Ogrodu</div>
+    <div class="sub-menu" *ngIf='showMobileSubMenu' (click)="toggleNav()" routerLink="/parking">Parking</div>
+    <div (click)="toggleNav()" routerLink="/dokumenty">Dokumenty</div>
+    <div (click)="toggleNav()" routerLink="/kontakt">Kontakt</div>
+    <div (click)="toggleNav()" routerLink="/o_nas">O nas</div>
   </div>
 </div>

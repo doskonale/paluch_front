@@ -10,13 +10,14 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { AboutComponent } from './pages/about/about.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { NewsComponent } from './pages/news/news.component';
-import { PaymentComponent } from './pages/payment/payment.component';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { ParkingComponent } from './pages/parking/parking.component';
 import { PlanComponent } from './pages/plan/plan.component';
 import { LanduseComponent } from './pages/landuse/landuse.component';
 import { HeaderComponent } from './core/header/header.component';
 import {MatButtonModule} from '@angular/material/button';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { TemplatesComponent } from './pages/templates/templates.component';
 
 @NgModule({
   declarations: [
@@ -26,11 +27,11 @@ import {MatButtonModule} from '@angular/material/button';
     AboutComponent,
     ContactComponent,
     NewsComponent,
-    PaymentComponent,
     ParkingComponent,
     PlanComponent,
     LanduseComponent,
     HeaderComponent,
+    TemplatesComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,6 +39,7 @@ import {MatButtonModule} from '@angular/material/button';
     BrowserAnimationsModule,
     MatProgressSpinnerModule,
     MatButtonModule,
+    MatProgressBarModule,
     PdfViewerModule,
   ],
   providers: [],
