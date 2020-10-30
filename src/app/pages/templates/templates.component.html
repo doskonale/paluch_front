@@ -1,1 +1,6 @@
-<p>templates works!</p>
+<table>
+  <tr *ngFor="let element of urls">
+    <td>{{element.name}}</td>
+    <td><a mat-button color="primary" href="{{element.url}}" target="_blank">Otwórz</a></td>
+  </tr>
+</table>
