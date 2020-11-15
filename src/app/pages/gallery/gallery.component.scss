@@ -1,0 +1,19 @@
+@import "/src/_variables.scss";
+
+:host {
+  overflow: hidden;
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+}
+
+gallery {
+  left: auto;
+  width: 100%;
+  z-index: 0;
+  left: 0%!important;
+  transform: translateX(0vw)!important;
+  background: $base_color_light;
+
+}

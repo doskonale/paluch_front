@@ -1,0 +1,27 @@
+<div [ngClass]="{'login-container': true, 'animation': showForm }">
+  <div *ngIf="showForm && !isLoggedIn">
+    <form>
+      <mat-form-field>
+        <input required matInput placeholder="login" name="username" [(ngModel)]="username">
+      </mat-form-field>
+      <mat-form-field>
+        <input required type="password" matInput placeholder="hasło" name="password" [(ngModel)]="password">
+      </mat-form-field>
+      <div *ngIf="error" style="color: red">
+        Nieprawidłowe dane logowania
+      </div>
+    </form>
+    <button *ngIf="!isLoggedIn" [disabled]="!username.length || !password.length" mat-button (click)="logIn()">
+      <span *ngIf="!loading">logowanie</span>
+      <mat-spinner *ngIf="loading" mode="indeterminate" color="accent" [diameter]="30"></mat-spinner>
+    </button>
+  </div>
+  <div *ngIf="showForm && isLoggedIn">
+    <span style="padding: 5px;">{{username}}</span>
+    <button mat-button (click)="logOut()">
+      <span>wylogowanie</span>
+      <mat-spinner *ngIf="loading" mode="indeterminate" color="accent" [diameter]="30"></mat-spinner>
+    </button>
+  </div>
+  <img (click)="toggleForm()" src="assets/icons/account_circle-24px.svg">
+</div>

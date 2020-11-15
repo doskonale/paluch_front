@@ -15,9 +15,18 @@ import { ParkingComponent } from './pages/parking/parking.component';
 import { PlanComponent } from './pages/plan/plan.component';
 import { LanduseComponent } from './pages/landuse/landuse.component';
 import { HeaderComponent } from './core/header/header.component';
-import {MatButtonModule} from '@angular/material/button';
-import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { TemplatesComponent } from './pages/templates/templates.component';
+import { LoginComponent } from './core/login/login.component';
+import { HttpClientModule } from '@angular/common/http';
+import { GalleryModule } from 'ng-gallery';
+
+import { MatButtonModule } from '@angular/material/button';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { MainComponent } from './pages/main/main.component';
+import { GalleryComponent } from './pages/gallery/gallery.component';
 
 @NgModule({
   declarations: [
@@ -32,15 +41,23 @@ import { TemplatesComponent } from './pages/templates/templates.component';
     LanduseComponent,
     HeaderComponent,
     TemplatesComponent,
+    LoginComponent,
+    MainComponent,
+    GalleryComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     BrowserAnimationsModule,
     MatProgressSpinnerModule,
+    MatFormFieldModule,
     MatButtonModule,
     MatProgressBarModule,
+    MatInputModule,
     PdfViewerModule,
+    HttpClientModule,
+    GalleryModule
   ],
   providers: [],
   bootstrap: [AppComponent]

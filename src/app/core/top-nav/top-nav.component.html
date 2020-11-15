@@ -1,4 +1,5 @@
 <div class="top-nav">
+  <div class="nav-cell" routerLink="/">Główna</div>
   <div style="display: flex; flex: 1;align-items: baseline;">
     <div style="width: 100%; background: white;" (mouseenter)='toggleSubMenu()' (mouseleave)='toggleSubMenu()'>
       <div class="nav-cell">Informacje</div>
@@ -13,23 +14,27 @@
   <div class="nav-cell" routerLink="/aktualnosci">Aktualności</div>
   <div class="nav-cell" routerLink="/dokumenty">Dokumenty</div>
   <div class="nav-cell" routerLink="/kontakt">Kontakt</div>
-  <div class="nav-cell" routerLink="/o_nas">O nas</div>
+  <div class="nav-cell" routerLink="/historia_ogrodu">Historia ogrodu</div>
+  <div class="nav-cell" routerLink="/galeria">Galeria</div>
 </div>
 
 <div class="top-nav-mobile">
   <img src="assets/img/menu_mobile.svg" style="object-fit: contain; height: 50px;" (click)='toggleNav()'>
   <div *ngIf="showMenu" class="top-nav-collapse">
+    <div (click)="toggleNav()" routerLink="/">Główna</div>
     <div (click)="toggleNav()" routerLink="/aktualnosci">Aktualności</div>
     <div (click)="toggleMobileSubMenu()">
       Informacje
       <img *ngIf='!showMobileSubMenu' src="assets/icons/keyboard_arrow_down-24px.svg">
       <img *ngIf='showMobileSubMenu' src="assets/icons/keyboard_arrow_up-24px.svg">
     </div>
-    <div class="sub-menu" *ngIf='showMobileSubMenu' (click)="toggleNav()" routerLink="/zagospodarowanie_terenu">Zagospodarowanie terenu</div>
+    <div class="sub-menu" *ngIf='showMobileSubMenu' (click)="toggleNav()" routerLink="/zagospodarowanie_terenu">
+      Zagospodarowanie terenu</div>
     <div class="sub-menu" *ngIf='showMobileSubMenu' (click)="toggleNav()" routerLink="/plan">Plan Ogrodu</div>
     <div class="sub-menu" *ngIf='showMobileSubMenu' (click)="toggleNav()" routerLink="/parking">Parking</div>
     <div (click)="toggleNav()" routerLink="/dokumenty">Dokumenty</div>
     <div (click)="toggleNav()" routerLink="/kontakt">Kontakt</div>
-    <div (click)="toggleNav()" routerLink="/o_nas">O nas</div>
+    <div (click)="toggleNav()" routerLink="/historia_ogrodu">Historia ogrodu</div>
+    <div (click)="toggleNav()" routerLink="/galeria">Galeria</div>
   </div>
 </div>
