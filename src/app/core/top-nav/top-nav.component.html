@@ -1,6 +1,6 @@
 <div class="top-nav">
   <div class="nav-cell" routerLink="/">Główna</div>
-  <div style="display: flex; flex: 1;align-items: baseline;">
+  <!-- <div style="display: flex; flex: 1;align-items: baseline;">
     <div style="width: 100%; background: white;" (mouseenter)='toggleSubMenu()' (mouseleave)='toggleSubMenu()'>
       <div class="nav-cell">Informacje</div>
       <div [hidden]='!showSubMenu'>
@@ -8,14 +8,13 @@
         <div class="nav-cell" routerLink="/plan">Plan Ogrodu</div>
         <div class="nav-cell" routerLink="/parking">Parking</div>
       </div>
-
     </div>
-  </div>
-  <div class="nav-cell" routerLink="/aktualnosci">Aktualności</div>
-  <div class="nav-cell" routerLink="/dokumenty">Dokumenty</div>
-  <div class="nav-cell" routerLink="/kontakt">Kontakt</div>
-  <div class="nav-cell" routerLink="/historia_ogrodu">Historia ogrodu</div>
-  <div class="nav-cell" routerLink="/galeria">Galeria</div>
+  </div> -->
+  <div class="nav-cell" routerLink="/aktualnosci" routerLinkActive='active'>Aktualności</div>
+  <div class="nav-cell" routerLink="/dokumenty" routerLinkActive='active'>Dokumenty</div>
+  <div class="nav-cell" routerLink="/kontakt" routerLinkActive='active'>Kontakt</div>
+  <div class="nav-cell" routerLink="/historia_ogrodu" routerLinkActive='active'>Historia ogrodu</div>
+  <div class="nav-cell" routerLink="/galeria" routerLinkActive='active'>Galeria</div>
 </div>
 
 <div class="top-nav-mobile">

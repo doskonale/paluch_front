@@ -1,0 +1,9 @@
+<h1 mat-dialog-title>Zdjęcie</h1>
+<div mat-dialog-content>
+  <p>Czy na prewno chcesz usunąć wybrane zdjęcie?</p>
+  <img src="{{data.file}}">
+</div>
+<div mat-dialog-actions>
+  <button mat-button color="warn" cdkFocusInitial>Tak</button>
+  <button mat-button (click)="onNoClick()">Nie</button>
+</div>

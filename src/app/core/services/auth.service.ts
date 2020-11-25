@@ -5,13 +5,14 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class LoginService {
+export class AuthService {
 
-  private authTokenUrl = 'http://194.59.159.71/api-token-auth/';
+  private authTokenUrl = 'https://194.59.159.71/api-token-auth/';
 
   constructor(private http: HttpClient) { }
 
   login(username, password): Observable<any> {
+    console.log(this.http.post<any>(this.authTokenUrl, { username, password }));
     return this.http.post<any>(this.authTokenUrl, { username, password });
   }
 }

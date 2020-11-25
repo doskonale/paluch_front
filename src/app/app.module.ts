@@ -17,7 +17,7 @@ import { LanduseComponent } from './pages/landuse/landuse.component';
 import { HeaderComponent } from './core/header/header.component';
 import { TemplatesComponent } from './pages/templates/templates.component';
 import { LoginComponent } from './core/login/login.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { GalleryModule } from 'ng-gallery';
 
 import { MatButtonModule } from '@angular/material/button';
@@ -25,8 +25,11 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
+import {MatDialogModule} from '@angular/material/dialog';
 import { MainComponent } from './pages/main/main.component';
 import { GalleryComponent } from './pages/gallery/gallery.component';
+import { AuthInterceptor } from './core/services/generic.service';
+import { DeleteDialogComponent } from './pages/gallery/delete-dialog/delete-dialog.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +47,7 @@ import { GalleryComponent } from './pages/gallery/gallery.component';
     LoginComponent,
     MainComponent,
     GalleryComponent,
+    DeleteDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,11 +59,21 @@ import { GalleryComponent } from './pages/gallery/gallery.component';
     MatButtonModule,
     MatProgressBarModule,
     MatInputModule,
+    MatDialogModule,
     PdfViewerModule,
     HttpClientModule,
     GalleryModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+  ],
+  entryComponents: [
+    DeleteDialogComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,1 +1,28 @@
-<gallery fluid [items]="items"></gallery>
+<div *ngIf="!isLoadingResults" class="container">
+  <gallery fluid [items]="items"></gallery>
+  <div class="file-upload-container">
+    <button mat-raised-button color="warn">
+      <label for="file">
+        <div *ngIf="!fileToUpload" style="display: flex;">
+          <img src="assets/icons/backup-24px.svg">&nbsp;wybierz plik
+        </div>
+        <div *ngIf="fileToUpload">{{fileToUpload.name}}</div>
+      </label>
+    </button>
+    <input type="file" id="file" class="file-input" (change)="handleFileInput($event.target.files)"><br />
+    <button mat-raised-button (click)="uploadFileToActivity()">Prześlij</button>
+  </div>
+  <div class="file-list-container">
+    <table>
+      <tr>
+        <td colspan="3" style="text-align: center;">Lisa dostępnych zdjęć</td>
+      </tr>
+      <tr *ngFor="let img of images">
+        <td><img src="{{img.file}}"></td>
+        <td>{{img.file}}</td>
+        <td><img src="assets/icons/delete-24px.svg" (click)="openDialog(img)"></td>
+      </tr>
+    </table>
+  </div>
+</div>
+<mat-spinner *ngIf="isLoadingResults" mode="indeterminate" color="accent" [diameter]="30"></mat-spinner>

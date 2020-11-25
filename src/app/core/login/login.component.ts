@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LocalStorageService } from '../services/local-storage.service';
-import { LoginService } from '../services/login.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
   isLoggedIn = false;
 
   constructor(
-    private loginSevice: LoginService,
+    private authSevice: AuthService,
     private localStorageService: LocalStorageService
   ) { }
 
@@ -28,17 +28,16 @@ export class LoginComponent implements OnInit {
   }
   logIn(): void {
     this.loading = true;
-    this.loginSevice.login(this.username, this.password)
+    this.authSevice.login(this.username, this.password)
       .subscribe(
         (response) => {
-          console.log('response received', response);
           this.error = false;
           this.loading = false;
           this.isLoggedIn = true;
           this.localStorageService.set('authUser', response);
         },
         (error) => {
-          console.error('error caught in component');
+          console.error('error caught in component', error);
           this.error = true;
           this.loading = false;
         },
