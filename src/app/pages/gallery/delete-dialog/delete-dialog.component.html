@@ -4,6 +4,6 @@
   <img src="{{data.file}}">
 </div>
 <div mat-dialog-actions>
-  <button mat-button color="warn" cdkFocusInitial>Tak</button>
+  <button mat-button color="warn" cdkFocusInitial (click)="deleteFile()">Tak</button>
   <button mat-button (click)="onNoClick()">Nie</button>
 </div>

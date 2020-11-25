@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LocalStorageService {
-  data = new Subject();
+  data = new BehaviorSubject<any>(this.get('authUser'));
 
   set(key: string, value: string): void {
     localStorage.setItem(key, JSON.stringify(value));

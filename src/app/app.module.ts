@@ -30,6 +30,7 @@ import { MainComponent } from './pages/main/main.component';
 import { GalleryComponent } from './pages/gallery/gallery.component';
 import { AuthInterceptor } from './core/services/generic.service';
 import { DeleteDialogComponent } from './pages/gallery/delete-dialog/delete-dialog.component';
+import { AuthDirective } from './core/directives/auth.directive';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { DeleteDialogComponent } from './pages/gallery/delete-dialog/delete-dial
     MainComponent,
     GalleryComponent,
     DeleteDialogComponent,
+    AuthDirective,
   ],
   imports: [
     BrowserModule,

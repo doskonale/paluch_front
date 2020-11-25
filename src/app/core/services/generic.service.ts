@@ -19,6 +19,10 @@ export abstract class GenericService<T> {
     return this.http.get<T>(url);
   }
 
+  public delete(id: number): Observable<T> {
+    return this.http.delete<T>(this.actionUrl + id);
+  }
+
   public post(data): Observable<T> {
     return this.http.post<T>(this.actionUrl, data);
   }
