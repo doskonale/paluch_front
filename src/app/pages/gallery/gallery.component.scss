@@ -28,23 +28,6 @@ gallery {
   background: $base_color_light;
 }
 
-.file-input {
-	width: 0.1px;
-	height: 0.1px;
-	opacity: 0;
-	overflow: hidden;
-	position: absolute;
-	z-index: -1;
-}
-
-.file-upload-container {
-  padding: 5px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-}
-
 .file-list-container {
   padding: 5px;
   display: flex;

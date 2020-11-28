@@ -1,17 +1,6 @@
 <div *ngIf="!isLoadingResults" class="container">
   <gallery fluid [items]="items"></gallery>
-  <div *appAuthUser class="file-upload-container">
-    <button mat-raised-button color="warn">
-      <label for="file">
-        <div *ngIf="!fileToUpload" style="display: flex;">
-          <img src="assets/icons/backup-24px.svg">&nbsp;wybierz plik
-        </div>
-        <div *ngIf="fileToUpload">{{fileToUpload.name}}</div>
-      </label>
-    </button>
-    <input type="file" id="file" class="file-input" (change)="handleFileInput($event.target.files)"><br />
-    <button [disabled]="!fileToUpload" mat-raised-button (click)="uploadFileToActivity()">Prześlij</button>
-  </div>
+  <app-file-upload [type]="'img'" [module]="'galery'" *appAuthUser ></app-file-upload>
   <div *appAuthUser class="file-list-container">
     <table>
       <tr>
@@ -19,12 +8,11 @@
       </tr>
       <tr *ngFor="let img of images" class="row-hover">
         <td><img src="{{img.file}}"></td>
-        <td>{{img.file}}</td>
-        <td><img src="assets/icons/delete-24px.svg" (click)="openDialog(img)"></td>
+        <td>{{img.file | fileName}}</td>
+        <td><img src="assets/icons/delete-24px.svg" (click)="openDeleteDialog(img)"></td>
       </tr>
     </table>
   </div>
-</div>
 <div *ngIf="isLoadingResults" class="loading-shade">
   <mat-spinner mode="indeterminate" color="accent" [diameter]="30"></mat-spinner>
 </div>

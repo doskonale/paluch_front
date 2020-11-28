@@ -1,35 +1,41 @@
-import { LocalStorageService } from './../../core/services/local-storage.service';
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Gallery, GalleryItem, ImageItem } from 'ng-gallery';
 import { FileService } from 'src/app/core/services/generic.service';
-import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
+import { DeleteDialogComponent } from 'src/app/core/shared/components/delete-dialog/delete-dialog.component';
+import { FileUploadService } from 'src/app/core/shared/services/file-upload.service';
 
 @Component({
   selector: 'app-gallery',
   templateUrl: './gallery.component.html',
   styleUrls: ['./gallery.component.scss'],
-  providers: [FileService]
+  providers: [FileService, FileUploadService]
 })
 export class GalleryComponent implements AfterViewInit {
   items: GalleryItem[];
   imageData = [];
-  fileToUpload: File = null;
   images = [];
   isLoadingResults = true;
 
   constructor(
     public gallery: Gallery,
     public fileService: FileService,
-    public dialog: MatDialog) {}
+    public fileUploadService: FileUploadService,
+    public dialog: MatDialog) {
+    this.fileUploadService.get().subscribe(res => {
+      this.images.push(res);
+      this.convertImgs();
+    });
+  }
 
   ngAfterViewInit(): void {
     this.getFiles();
+
   }
 
   getFiles(): void {
     this.isLoadingResults = true;
-    this.fileService.get().subscribe(res => {
+    this.fileService.get('?type=img').subscribe(res => {
       this.images = res;
       this.convertImgs();
       this.isLoadingResults = false;
@@ -49,7 +55,7 @@ export class GalleryComponent implements AfterViewInit {
     this.items = this.imageData.map(item => new ImageItem({ src: item.srcUrl, thumb: item.previewUrl }));
   }
 
-  openDialog(imgObj): void {
+  openDeleteDialog(imgObj): void {
     const dialogRef = this.dialog.open(DeleteDialogComponent, {
       data: imgObj
     });
@@ -59,25 +65,6 @@ export class GalleryComponent implements AfterViewInit {
         this.images = this.images.filter(element => element.id !== data.id);
         this.convertImgs();
       }
-    });
-  }
-
-  handleFileInput(files: FileList): void {
-    this.fileToUpload = files.item(0);
-    console.log(this.fileToUpload);
-  }
-
-  uploadFileToActivity(): void {
-    this.isLoadingResults = true;
-    const payload = { file: this.fileToUpload, type: 'img' };
-    this.fileService.postFile(payload).subscribe(res => {
-      this.images.push(res);
-      this.convertImgs();
-      this.fileToUpload = null;
-      this.isLoadingResults = false;
-    }, error => {
-      console.log(error);
-      this.isLoadingResults = false;
     });
   }
 }

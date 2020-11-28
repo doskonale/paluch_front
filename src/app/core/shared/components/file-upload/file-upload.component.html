@@ -1,0 +1,13 @@
+<button mat-raised-button color="warn">
+  <label for="file">
+    <div *ngIf="!fileToUpload" style="display: flex;">
+      <img src="assets/icons/backup-24px.svg">&nbsp;wybierz plik
+    </div>
+    <div *ngIf="fileToUpload">{{fileToUpload.name}}</div>
+  </label>
+</button>
+<input type="file" id="file" class="file-input" (change)="handleFileInput($event.target.files)"><br />
+<button [disabled]="!fileToUpload || isLoadingResults" mat-raised-button (click)="uploadFileToActivity()">
+  <span *ngIf="!isLoadingResults">Prześlij</span>
+  <mat-spinner *ngIf="isLoadingResults" mode="indeterminate" color="accent" [diameter]="30"></mat-spinner>
+</button>

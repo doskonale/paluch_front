@@ -13,7 +13,7 @@ import { TemplatesComponent } from './pages/templates/templates.component';
 const routes: Routes = [
   { path: '', component: MainComponent },
   { path: 'aktualnosci', component: NewsComponent },
-  { path: 'dokumenty', component: TemplatesComponent },
+  { path: 'oplaty', component: TemplatesComponent },
   { path: 'historia_ogrodu', component: AboutComponent },
   { path: 'kontakt', component: ContactComponent },
   { path: 'parking', component: ParkingComponent },

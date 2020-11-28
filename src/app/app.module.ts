@@ -29,8 +29,10 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { MainComponent } from './pages/main/main.component';
 import { GalleryComponent } from './pages/gallery/gallery.component';
 import { AuthInterceptor } from './core/services/generic.service';
-import { DeleteDialogComponent } from './pages/gallery/delete-dialog/delete-dialog.component';
 import { AuthDirective } from './core/directives/auth.directive';
+import { FileUploadComponent } from './core/shared/components/file-upload/file-upload.component';
+import { DeleteDialogComponent } from './core/shared/components/delete-dialog/delete-dialog.component';
+import { FileNamePipe } from './core/shared/pipes/file-name.pipe';
 
 @NgModule({
   declarations: [
@@ -50,6 +52,8 @@ import { AuthDirective } from './core/directives/auth.directive';
     GalleryComponent,
     DeleteDialogComponent,
     AuthDirective,
+    FileUploadComponent,
+    FileNamePipe,
   ],
   imports: [
     BrowserModule,
