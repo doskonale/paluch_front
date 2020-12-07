@@ -1,0 +1,25 @@
+.container {
+  max-width: 90vw;
+}
+mat-form-field {
+  width: 100%;
+}
+
+.file-input {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.text-editor {
+  max-height: 60vh;
+}
+
+.flex-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

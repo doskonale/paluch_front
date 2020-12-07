@@ -1,3 +1,4 @@
+<p>Opłaty - dokumenty</p>
 <table>
   <tr *ngFor="let element of files">
     <td>{{element.file | fileName}}</td>
@@ -7,3 +8,4 @@
   </tr>
 </table>
 <app-file-upload *appAuthUser [type]="'doc'" [module]="'templates'"></app-file-upload>
+<div *ngIf="!files.length">Brak dokumentów</div>

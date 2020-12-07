@@ -22,7 +22,7 @@
   <div *ngIf="showMenu" class="top-nav-collapse">
     <div (click)="toggleNav()" routerLink="/">Główna</div>
     <div (click)="toggleNav()" routerLink="/aktualnosci">Aktualności</div>
-    <div (click)="toggleMobileSubMenu()">
+    <!-- <div (click)="toggleMobileSubMenu()">
       Informacje
       <img *ngIf='!showMobileSubMenu' src="assets/icons/keyboard_arrow_down-24px.svg">
       <img *ngIf='showMobileSubMenu' src="assets/icons/keyboard_arrow_up-24px.svg">
@@ -30,8 +30,8 @@
     <div class="sub-menu" *ngIf='showMobileSubMenu' (click)="toggleNav()" routerLink="/zagospodarowanie_terenu">
       Zagospodarowanie terenu</div>
     <div class="sub-menu" *ngIf='showMobileSubMenu' (click)="toggleNav()" routerLink="/plan">Plan Ogrodu</div>
-    <div class="sub-menu" *ngIf='showMobileSubMenu' (click)="toggleNav()" routerLink="/parking">Parking</div>
-    <div (click)="toggleNav()" routerLink="/dokumenty">Dokumenty</div>
+    <div class="sub-menu" *ngIf='showMobileSubMenu' (click)="toggleNav()" routerLink="/parking">Parking</div> -->
+    <div (click)="toggleNav()" routerLink="/oplaty">Opłaty</div>
     <div (click)="toggleNav()" routerLink="/kontakt">Kontakt</div>
     <div (click)="toggleNav()" routerLink="/historia_ogrodu">Historia ogrodu</div>
     <div (click)="toggleNav()" routerLink="/galeria">Galeria</div>

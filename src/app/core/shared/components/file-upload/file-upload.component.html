@@ -9,5 +9,5 @@
 <input type="file" id="file" class="file-input" (change)="handleFileInput($event.target.files)"><br />
 <button [disabled]="!fileToUpload || isLoadingResults" mat-raised-button (click)="uploadFileToActivity()">
   <span *ngIf="!isLoadingResults">Prześlij</span>
-  <mat-spinner *ngIf="isLoadingResults" mode="indeterminate" color="accent" [diameter]="30"></mat-spinner>
+  <mat-spinner *ngIf="isLoadingResults" mode="indeterminate" color="primary" [diameter]="30"></mat-spinner>
 </button>

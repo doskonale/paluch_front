@@ -9,7 +9,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { AboutComponent } from './pages/about/about.component';
 import { ContactComponent } from './pages/contact/contact.component';
-import { NewsComponent } from './pages/news/news.component';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { ParkingComponent } from './pages/parking/parking.component';
 import { PlanComponent } from './pages/plan/plan.component';
@@ -20,10 +19,11 @@ import { LoginComponent } from './core/login/login.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { GalleryModule } from 'ng-gallery';
 
+import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatButtonModule } from '@angular/material/button';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import {MatDialogModule} from '@angular/material/dialog';
 import { MainComponent } from './pages/main/main.component';
@@ -33,6 +33,12 @@ import { AuthDirective } from './core/directives/auth.directive';
 import { FileUploadComponent } from './core/shared/components/file-upload/file-upload.component';
 import { DeleteDialogComponent } from './core/shared/components/delete-dialog/delete-dialog.component';
 import { FileNamePipe } from './core/shared/pipes/file-name.pipe';
+import { ListComponent } from './pages/posts/components/list/list.component';
+import { AddDialogComponent } from './pages/posts/components/add-dialog/add-dialog.component';
+import { ViewDialogComponent } from './pages/posts/components/view-dialog/view-dialog.component';
+import { MatNativeDateModule } from '@angular/material/core';
+import { QuillModule } from 'ngx-quill'
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -41,7 +47,6 @@ import { FileNamePipe } from './core/shared/pipes/file-name.pipe';
     FooterComponent,
     AboutComponent,
     ContactComponent,
-    NewsComponent,
     ParkingComponent,
     PlanComponent,
     LanduseComponent,
@@ -54,11 +59,16 @@ import { FileNamePipe } from './core/shared/pipes/file-name.pipe';
     AuthDirective,
     FileUploadComponent,
     FileNamePipe,
+    ListComponent,
+    AddDialogComponent,
+    ViewDialogComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
+    MatNativeDateModule,
     BrowserAnimationsModule,
     MatProgressSpinnerModule,
     MatFormFieldModule,
@@ -66,9 +76,12 @@ import { FileNamePipe } from './core/shared/pipes/file-name.pipe';
     MatProgressBarModule,
     MatInputModule,
     MatDialogModule,
+    MatDatepickerModule,
+    MatPaginatorModule,
     PdfViewerModule,
     HttpClientModule,
-    GalleryModule
+    GalleryModule,
+    QuillModule.forRoot()
   ],
   providers: [
     {
@@ -78,7 +91,9 @@ import { FileNamePipe } from './core/shared/pipes/file-name.pipe';
     }
   ],
   entryComponents: [
-    DeleteDialogComponent
+    DeleteDialogComponent,
+    AddDialogComponent,
+    ViewDialogComponent,
   ],
   bootstrap: [AppComponent]
 })

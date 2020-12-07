@@ -1,5 +1,6 @@
 :host {
   width: 100%;
+  z-index: 1;
 }
 
 .footer {
@@ -10,6 +11,7 @@
   justify-content: space-around;
   align-items: center;
   overflow: hidden;
+
 }
 
 @media (max-width: 800px) {

@@ -1,0 +1,11 @@
+  <div *ngFor="let post of posts" class="post">
+    <div class="header">{{post.title}}</div>
+    <quill-view-html [content]="post.content" theme="snow"></quill-view-html>
+  </div>
+  <div class="post">
+    <mat-paginator [length]="count" [pageSize]="15"></mat-paginator>
+    <button *appAuthUser mat-raised-button (click)="openAddDialog()">Dodaj nowy wpis</button>
+  </div>
+  <div *ngIf="isLoadingResults" class="loading-shade">
+    <mat-spinner mode="indeterminate" color="primary" [diameter]="30"></mat-spinner>
+  </div>

@@ -1,0 +1,65 @@
+<div class="container">
+  <h1 mat-dialog-title>Dodaj nową wiadomość</h1>
+  <div mat-dialog-content>
+    <mat-form-field appearance="fill">
+      <mat-label>Tytuł</mat-label>
+      <input matInput placeholder="Tytuł" [(ngModel)]="post.title">
+    </mat-form-field>
+    <div class="text-editor">
+      <quill-editor theme="snow" placeholder="Treść wiadomości ..." [(ngModel)]="post.content">
+        <div quill-editor-toolbar>
+          <select class="ql-font">
+            <option ></option>
+            <option selected value="serif"></option>
+            <option value="monospace"></option>
+          </select>
+          <select class="ql-size">
+            <option value="small">mała</option>
+            <option selected>normalna</option>
+            <option value="large">duża</option>
+            <option value="huge">wielka</option>
+          </select>
+          <span class="ql-formats">
+            <button class="ql-bold" [title]="'Pogrubienie'"></button>
+            <button class="ql-italic" [title]="'Kursywa'"></button>
+            <button class="ql-underline" [title]="'Podkreślenie'"></button>
+          </span>
+          <span class="ql-formats">
+            <select class="ql-color"></select>
+            <select class="ql-background"></select>
+          </span>
+          <span class="ql-formats">
+            <select class="ql-align" [title]="'Wyrównanie'">
+              <option selected></option>
+              <option value="center"></option>
+              <option value="right"></option>
+              <option value="justify"></option>
+            </select>
+          </span>
+          <span class="ql-formats">
+            <button class="ql-image" [title]="'Wstaw obraz'"></button>
+          </span>
+        </div>
+      </quill-editor>
+      <br />
+      <mat-form-field appearance="fill">
+        <mat-label>Kiedy post ma być wyświetlany w powiadomieniach</mat-label>
+        <mat-date-range-input [rangePicker]="picker">
+          <input matStartDate [(ngModel)]='post.start_date' placeholder="Data rozpoczęcia">
+          <input matEndDate [(ngModel)]='post.end_date' placeholder="Data zakończenia">
+        </mat-date-range-input>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-date-range-picker #picker></mat-date-range-picker>
+      </mat-form-field>
+    </div>
+  </div>
+  <div mat-dialog-actions class="flex-container">
+    <button [disabled]="!post.title || success || isLoadingResults" mat-button color="primary" cdkFocusInitial (click)="addPost()">
+      <span *ngIf="!isLoadingResults && !success">Dodaj</span>
+      <span *ngIf="!isLoadingResults && success">Dodano</span>
+      <mat-spinner *ngIf="isLoadingResults" mode="indeterminate" color="primary" [diameter]="30"></mat-spinner>
+    </button>
+    <button mat-button (click)="onNoClick()">Zamknij</button>
+  </div>
+  <div *ngIf="errorMessage">{{errorMessage}}</div>
+<div>

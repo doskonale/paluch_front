@@ -1,6 +1,8 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { FileService } from 'src/app/core/services/generic.service';
+import { empty } from 'rxjs';
+import { expand, reduce } from 'rxjs/operators';
+import { FileService, fileUrl } from 'src/app/core/services/generic.service';
 import { DeleteDialogComponent } from 'src/app/core/shared/components/delete-dialog/delete-dialog.component';
 import { FileUploadService } from 'src/app/core/shared/services/file-upload.service';
 
@@ -13,6 +15,7 @@ import { FileUploadService } from 'src/app/core/shared/services/file-upload.serv
 export class TemplatesComponent implements AfterViewInit {
   fileToUpload: File = null;
   files = [];
+  isLoadingResults = false;
 
   constructor(
     public fileService: FileService,
@@ -28,9 +31,18 @@ export class TemplatesComponent implements AfterViewInit {
   }
 
   getFiles(): void {
-    this.fileService.get('?type=doc').subscribe(res => {
-      console.log(res);
+    this.isLoadingResults = true;
+    this.fileService.get('?type=doc').pipe(
+      expand(({ next }) => next ? (
+      next = next.slice(fileUrl.length, next.length),
+      this.fileService.get(next)) : empty()),
+      reduce((acc, response) => acc.concat(response.results), [])
+    ).subscribe(res => {
       this.files = res;
+      this.isLoadingResults = false;
+    }, error => {
+      console.log(error);
+      this.isLoadingResults = false;
     });
   }
 

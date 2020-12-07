@@ -1,10 +1,10 @@
 import { LocalStorageService } from './local-storage.service';
-import { AuthService } from './auth.service';
-import { HttpClient, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
+import { HttpClient, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-const fileUrl = 'https://194.59.159.71/files/';
+export const fileUrl = 'https://194.59.159.71/files/';
+export const postUrl = 'https://194.59.159.71/posts/';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +16,7 @@ export abstract class GenericService<T> {
 
   public get(urlFilter?: string): Observable<T> {
     const url = urlFilter ? this.actionUrl + urlFilter : this.actionUrl;
+    console.log(url)
     return this.http.get<T>(url);
   }
 
@@ -27,10 +28,33 @@ export abstract class GenericService<T> {
     return this.http.post<T>(this.actionUrl, data);
   }
 
+  public path(data): Observable<T> {
+    return this.http.patch<T>(this.actionUrl + data.id, data);
+  }
+
   public postFile(payload): Observable<T> {
     const formData: FormData = new FormData();
-    formData.append('file', payload.file, payload.file.name);
-    formData.append('type', payload.type);
+    if (payload.file && payload.file.name) {
+      formData.append('file', payload.file, payload.file.name);
+    }
+    if (payload.type) {
+      formData.append('type', payload.type);
+    }
+    if (payload.module) {
+      formData.append('module', payload.module);
+    }
+    if (payload.title) {
+      formData.append('title', payload.title);
+    }
+    if (payload.content) {
+      formData.append('content', payload.content);
+    }
+    if (payload.start_date) {
+      formData.append('start_date', payload.start_date);
+    }
+    if (payload.end_date) {
+      formData.append('end_date', payload.end_date);
+    }
     return this.http.post<T>(this.actionUrl, formData);
   }
 }
@@ -39,6 +63,13 @@ export abstract class GenericService<T> {
 export class FileService extends GenericService<any> {
   constructor(http: HttpClient) {
     super(http, fileUrl);
+  }
+}
+
+@Injectable()
+export class PostService extends GenericService<any> {
+  constructor(http: HttpClient) {
+    super(http, postUrl);
   }
 }
 
