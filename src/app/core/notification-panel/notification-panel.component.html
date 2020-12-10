@@ -1,0 +1,6 @@
+<div *ngIf="posts.length" class="container">
+  <div class="header-tile">Aktualne wydarzenia</div>
+    <div class="tile" (click)="openViewDialog(post)" *ngFor="let post of posts">
+      {{post.title}}
+    </div>
+</div>

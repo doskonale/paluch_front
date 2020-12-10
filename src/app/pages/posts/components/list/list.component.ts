@@ -6,6 +6,8 @@ import { ViewDialogComponent } from '../view-dialog/view-dialog.component';
 import { MatPaginator } from '@angular/material/paginator';
 import { map, startWith, switchMap, catchError } from 'rxjs/operators';
 import { merge, of } from 'rxjs';
+import { DeletePostDialogComponent } from '../delete-post-dialog/delete-post-dialog.component';
+import { ManageDialogComponent } from '../manage-dialog/manage-dialog.component';
 
 @Component({
   selector: 'app-list',
@@ -52,23 +54,41 @@ export class ListComponent implements AfterViewInit {
   openAddDialog(): void {
     const dialogRef = this.dialog.open(AddDialogComponent);
 
-    dialogRef.afterClosed().subscribe(() => {
-      // if (data) {
-      //   this.files = this.files.filter(element => element.id !== data.id);
-      // }
+    dialogRef.afterClosed().subscribe((data) => {
+      if (data) {
+        this.pageUpdate(data);
+      }
     });
   }
 
-  openViewDialog(post): void {
-    const dialogRef = this.dialog.open(ViewDialogComponent, {
+  openDeleteDialog(post): void {
+    const dialogRef = this.dialog.open(DeletePostDialogComponent, {
       data: post
     });
 
     dialogRef.afterClosed().subscribe((data) => {
-      // if (data) {
-      //   this.files = this.files.filter(element => element.id !== data.id);
-      // }
+      if (data) {
+        this.pageUpdate(data);
+      }
     });
+  }
+
+  openManageDialog(post): void {
+    const dialogRef = this.dialog.open(ManageDialogComponent, {
+      data: post
+    });
+
+    dialogRef.afterClosed().subscribe((data) => {
+      if (data) {
+        this.pageUpdate(data);
+      }
+    });
+  }
+
+  pageUpdate(data): void {
+    this.paginator.pageIndex = 0;
+    this.paginator.page.next();
+    this.posts = this.posts.filter(element => element.id !== data.id);
   }
 
 }

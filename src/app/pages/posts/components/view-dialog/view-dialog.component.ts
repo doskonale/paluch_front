@@ -9,10 +9,13 @@ import { PostService } from 'src/app/core/services/generic.service';
   providers: [PostService]
 })
 export class ViewDialogComponent {
+  post;
 
   constructor(
     public dialogRef: MatDialogRef<ViewDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any, public postService: PostService) { }
+    @Inject(MAT_DIALOG_DATA) public data: any, public postService: PostService) {
+      this.post = data;
+    }
 
 
   onNoClick(): void {

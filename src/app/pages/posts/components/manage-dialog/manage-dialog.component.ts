@@ -1,22 +1,21 @@
-import { CustomDateAdapter, DateToISOStringReverse } from './../../../../core/shared/custom-date-adapter';
-import { DateAdapter } from '@angular/material/core';
-import { Component, Inject, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { PostService } from 'src/app/core/services/generic.service';
+import { CustomDateAdapter, DateToISOStringReverse } from './../../../../core/shared/custom-date-adapter';
+import { DateAdapter } from '@angular/material/core';
 
 @Component({
-  selector: 'app-add-dialog',
-  templateUrl: './add-dialog.component.html',
-  styleUrls: ['./add-dialog.component.scss'],
+  selector: 'app-manage-dialog',
+  templateUrl: './manage-dialog.component.html',
+  styleUrls: ['./manage-dialog.component.scss'],
   providers: [PostService, { provide: DateAdapter, useClass: CustomDateAdapter }]
 })
-
-
-export class AddDialogComponent implements AfterViewInit {
+export class ManageDialogComponent implements AfterViewInit {
   isLoadingResults = false;
   success = false;
   errorMessage: string;
   post = {
+    id: null,
     title: null,
     content: null,
     start_date: null,
@@ -24,19 +23,20 @@ export class AddDialogComponent implements AfterViewInit {
   };
 
   constructor(
-    public dialogRef: MatDialogRef<AddDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any,
-    public postService: PostService) { }
+    public dialogRef: MatDialogRef<ManageDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any, public postService: PostService) {
+      this.post = JSON.parse(JSON.stringify(data));
+     }
 
   ngAfterViewInit(): void {
   }
 
-  addPost(): void {
+  updatePost(): void {
     this.isLoadingResults = true;
     let payload = JSON.parse(JSON.stringify(this.post));
     payload.start_date = DateToISOStringReverse(payload.start_date);
     payload.end_date = DateToISOStringReverse(payload.end_date);
-    this.postService.post(payload).subscribe(
+    this.postService.patch(payload).subscribe(
       res => {
         this.post = res;
         this.isLoadingResults = false;
@@ -52,5 +52,4 @@ export class AddDialogComponent implements AfterViewInit {
   onNoClick(): void {
     this.success ? this.dialogRef.close(this.post) : this.dialogRef.close(null);
   }
-
 }

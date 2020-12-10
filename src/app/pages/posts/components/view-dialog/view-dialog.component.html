@@ -1,1 +1,3 @@
-<p>view-dialog works!</p>
+{{post.title}}
+<quill-view-html [content]="post.content" theme="snow"></quill-view-html>
+<button mat-raised-button (click)="onNoClick()">zamknij</button>

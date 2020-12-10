@@ -9,7 +9,7 @@
       <quill-editor theme="snow" placeholder="Treść wiadomości ..." [(ngModel)]="post.content">
         <div quill-editor-toolbar>
           <select class="ql-font">
-            <option ></option>
+            <option></option>
             <option selected value="serif"></option>
             <option value="monospace"></option>
           </select>
@@ -57,12 +57,13 @@
     </div>
   </div>
   <div mat-dialog-actions class="flex-container">
-    <button [disabled]="!post.title || success || isLoadingResults" mat-button color="primary" cdkFocusInitial (click)="addPost()">
-      <span *ngIf="!isLoadingResults && !success">Dodaj</span>
-      <span *ngIf="!isLoadingResults && success">Dodano</span>
+    <button [disabled]="!post.title || success || isLoadingResults" mat-button color="primary" cdkFocusInitial
+      (click)="updatePost()">
+      <span *ngIf="!isLoadingResults && !success">Aktualizuj</span>
+      <span *ngIf="!isLoadingResults && success">Zaktualizowano</span>
       <mat-spinner *ngIf="isLoadingResults" mode="indeterminate" color="primary" [diameter]="30"></mat-spinner>
     </button>
     <button mat-button (click)="onNoClick()">Zamknij</button>
   </div>
   <div *ngIf="errorMessage">{{errorMessage}}</div>
-<div>
+  <div>

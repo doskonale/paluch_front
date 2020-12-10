@@ -38,7 +38,12 @@ import { AddDialogComponent } from './pages/posts/components/add-dialog/add-dial
 import { ViewDialogComponent } from './pages/posts/components/view-dialog/view-dialog.component';
 import { MatNativeDateModule } from '@angular/material/core';
 import { QuillModule } from 'ngx-quill'
-import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatPaginatorIntl, MatPaginatorModule } from '@angular/material/paginator';
+import { DeletePostDialogComponent } from './pages/posts/components/delete-post-dialog/delete-post-dialog.component';
+import { DateTimeTrimmerPipe } from './core/shared/pipes/date-time-trimmer.pipe';
+import { ManageDialogComponent } from './pages/posts/components/manage-dialog/manage-dialog.component';
+import { CustomPaginator } from './core/shared/custom-pagination';
+import { NotificationPanelComponent } from './core/notification-panel/notification-panel.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +67,10 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     ListComponent,
     AddDialogComponent,
     ViewDialogComponent,
+    DeletePostDialogComponent,
+    DateTimeTrimmerPipe,
+    ManageDialogComponent,
+    NotificationPanelComponent,
   ],
   imports: [
     BrowserModule,
@@ -88,12 +97,17 @@ import { MatPaginatorModule } from '@angular/material/paginator';
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
       multi: true
+    },
+    {
+      provide: MatPaginatorIntl,
+      useValue: CustomPaginator()
     }
   ],
   entryComponents: [
     DeleteDialogComponent,
     AddDialogComponent,
-    ViewDialogComponent,
+    ManageDialogComponent,
+    DeletePostDialogComponent,
   ],
   bootstrap: [AppComponent]
 })

@@ -28,8 +28,8 @@ export abstract class GenericService<T> {
     return this.http.post<T>(this.actionUrl, data);
   }
 
-  public path(data): Observable<T> {
-    return this.http.patch<T>(this.actionUrl + data.id, data);
+  public patch(data): Observable<T> {
+    return this.http.patch<T>(this.actionUrl + data.id + '/', data);
   }
 
   public postFile(payload): Observable<T> {

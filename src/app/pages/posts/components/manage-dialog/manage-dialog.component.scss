@@ -24,14 +24,6 @@ mat-form-field {
   justify-content: center;
 }
 
-.ql-tooltip .ql-editing{
-  left: 0!important;
-  z-index: 1!important;
-}
-.ql-editor {
-  overflow: visible;
-}
-
 ::ng-deep.ql-editor {
   overflow: visible!important;
 }

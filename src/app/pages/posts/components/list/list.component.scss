@@ -17,11 +17,33 @@
   background: white;
 }
 
+
 .header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding: 5px;
   color: white;
-  text-align: center;
   background: $base_color_dark;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.flex-sub-div {
+  max-height: 100px!important;
+  flex: 1 1 0px;
+  width: 0px;
+}
+
+.flex-main-div {
+  max-height: 100px!important;
+  text-align: center;
+  flex: 2 1 0px;
+  width: 0px;
 }
 
 .loading-shade {
