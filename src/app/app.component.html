@@ -3,7 +3,26 @@
   <app-header></app-header>
   <app-top-nav></app-top-nav>
   <div class="content">
-    <router-outlet></router-outlet>
+    <div class="side-nav">
+      <app-notification-panel></app-notification-panel>
+    </div>
+    <div class="main-content">
+      <div class="mobile-left">
+        <button mat-mini-fab [matMenuTriggerFor]="menu">
+          <img src="assets/icons/more_vert-24px.svg" />
+        </button>
+        <mat-menu #menu="matMenu">
+          <app-notification-panel [showPopup]="false"></app-notification-panel>
+          <app-side-nav></app-side-nav>
+        </mat-menu>
+      </div>
+
+
+      <router-outlet></router-outlet>
+    </div>
+    <div class="side-nav">
+      <app-side-nav></app-side-nav>
+    </div>
   </div>
 
   <app-footer></app-footer>

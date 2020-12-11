@@ -1,6 +1,6 @@
 @import "/src/_variables.scss";
 
-.content {
+.contetnt {
   display: flex;
   flex-direction: column;
 }
@@ -28,4 +28,7 @@
 .tile:hover {
   background: $base_color_dark;
   color: white;
+}
+.tile:focus {
+  outline: none;
 }

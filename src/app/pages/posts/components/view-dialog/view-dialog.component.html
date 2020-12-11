@@ -1,3 +1,7 @@
 {{post.title}}
-<quill-view-html [content]="post.content" theme="snow"></quill-view-html>
+<br />
+<div class="scroll-box">
+  <quill-view-html [content]="post.content" theme="snow"></quill-view-html>
+</div>
+<br />
 <button mat-raised-button (click)="onNoClick()">zamknij</button>

@@ -4,3 +4,8 @@
   align-items: center;
   justify-content: center;
 }
+
+.scroll-box {
+  overflow: auto;
+  max-height: 60vh;
+}

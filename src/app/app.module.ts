@@ -37,13 +37,16 @@ import { ListComponent } from './pages/posts/components/list/list.component';
 import { AddDialogComponent } from './pages/posts/components/add-dialog/add-dialog.component';
 import { ViewDialogComponent } from './pages/posts/components/view-dialog/view-dialog.component';
 import { MatNativeDateModule } from '@angular/material/core';
-import { QuillModule } from 'ngx-quill'
+import { QuillModule } from 'ngx-quill';
 import { MatPaginatorIntl, MatPaginatorModule } from '@angular/material/paginator';
 import { DeletePostDialogComponent } from './pages/posts/components/delete-post-dialog/delete-post-dialog.component';
 import { DateTimeTrimmerPipe } from './core/shared/pipes/date-time-trimmer.pipe';
 import { ManageDialogComponent } from './pages/posts/components/manage-dialog/manage-dialog.component';
 import { CustomPaginator } from './core/shared/custom-pagination';
 import { NotificationPanelComponent } from './core/notification-panel/notification-panel.component';
+import { SideNavComponent } from './core/side-nav/side-nav.component';
+import { MatMenuModule } from '@angular/material/menu';
+
 
 @NgModule({
   declarations: [
@@ -71,6 +74,7 @@ import { NotificationPanelComponent } from './core/notification-panel/notificati
     DateTimeTrimmerPipe,
     ManageDialogComponent,
     NotificationPanelComponent,
+    SideNavComponent,
   ],
   imports: [
     BrowserModule,
@@ -81,6 +85,7 @@ import { NotificationPanelComponent } from './core/notification-panel/notificati
     BrowserAnimationsModule,
     MatProgressSpinnerModule,
     MatFormFieldModule,
+    MatMenuModule,
     MatButtonModule,
     MatProgressBarModule,
     MatInputModule,
