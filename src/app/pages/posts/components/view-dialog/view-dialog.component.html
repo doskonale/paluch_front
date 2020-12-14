@@ -1,7 +1,13 @@
-{{post.title}}
-<br />
-<div class="scroll-box">
-  <quill-view-html [content]="post.content" theme="snow"></quill-view-html>
+<div>
+  <div class="flex-center">
+    {{post.title}}
+  </div>
+  <br />
+  <div class="scroll-box">
+    <quill-view-html [content]="post.content"></quill-view-html>
+  </div>
+  <br />
+  <div class="flex-center">
+    <button mat-raised-button (click)="onNoClick()">zamknij</button>
+  </div>
 </div>
-<br />
-<button mat-raised-button (click)="onNoClick()">zamknij</button>

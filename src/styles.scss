@@ -6,3 +6,9 @@ body {
   padding: 0px;
   margin: 0px;
 }
+
+* {
+  font-family: 'Courgette', cursive;
+}
+
+::ng-deep.mat-dialog{ transition: none; }

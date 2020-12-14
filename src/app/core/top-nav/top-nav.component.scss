@@ -22,9 +22,12 @@
   display: flex;
   justify-content: flex-start;
   height: 50px;
-  font-family: 'Courgette', cursive;
 }
-
+.centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .top-nav-mobile {
   background: white;

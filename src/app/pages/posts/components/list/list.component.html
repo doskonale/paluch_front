@@ -1,19 +1,20 @@
-  <div *ngFor="let post of posts" class="post">
-    <div class="header">
-      <div class="flex-sub-div"><small>Paluch, {{post.created | dateTimeTrimmer}}</small></div>
-      <div class="flex-main-div">{{post.title}}</div>
-      <div class="flex-sub-div flex-center">
-        <img *appAuthUser src="assets/icons/delete-24px_color.svg" (click)="openDeleteDialog(post)">
-        <img *appAuthUser src="assets/icons/create-24px.svg" (click)="openManageDialog(post)">
-      </div>
-
+<div *ngFor="let post of posts" class="post">
+  <div class="header">
+    <div class="flex-sub-div"><small>Paluch, {{post.created | dateTimeTrimmer}}</small></div>
+    <div class="flex-main-div">{{post.title}}</div>
+    <div class="flex-sub-div flex-center">
+      <img *appAuthUser src="assets/icons/delete-24px_color.svg" (click)="openDeleteDialog(post)">
+      <img *appAuthUser src="assets/icons/create-24px.svg" (click)="openManageDialog(post)">
     </div>
-    <quill-view-html [content]="post.content" theme="snow"></quill-view-html>
+
   </div>
-  <div class="post">
-    <mat-paginator [length]="count" [pageSize]="15"></mat-paginator>
-    <button *appAuthUser mat-raised-button (click)="openAddDialog()">Dodaj nowy wpis</button>
-  </div>
+  <quill-view-html [content]="post.content" theme="snow"></quill-view-html>
+</div>
+<div class="post">
   <div *ngIf="isLoadingResults" class="loading-shade">
     <mat-spinner mode="indeterminate" color="primary" [diameter]="30"></mat-spinner>
   </div>
+  <mat-paginator [length]="count" [pageSize]="15"></mat-paginator>
+  <button *appAuthUser mat-raised-button (click)="openAddDialog()">Dodaj nowy wpis</button>
+</div>
+

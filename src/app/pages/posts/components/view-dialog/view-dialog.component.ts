@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { PostService } from 'src/app/core/services/generic.service';
 
@@ -6,7 +6,8 @@ import { PostService } from 'src/app/core/services/generic.service';
   selector: 'app-view-dialog',
   templateUrl: './view-dialog.component.html',
   styleUrls: ['./view-dialog.component.scss'],
-  providers: [PostService]
+  providers: [PostService],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ViewDialogComponent {
   post;

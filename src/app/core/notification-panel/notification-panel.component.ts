@@ -14,6 +14,7 @@ export class NotificationPanelComponent implements AfterViewInit {
   @Input() showPopup = true;
   posts = [];
   speed = 4;
+  isLoadingResults = true;
 
   constructor(
     private postService: PostService,
@@ -24,6 +25,7 @@ export class NotificationPanelComponent implements AfterViewInit {
     const currentDate = DateToISOStringReverse(new Date());
     this.postService.get('?start_date__lte=' + currentDate + '&end_date__gte=' + currentDate).subscribe(response => {
       this.posts = response.results;
+      this.isLoadingResults = false;
       if (this.showPopup) {
         this.openViewDialog(this.posts[0]);
       }

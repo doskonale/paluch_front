@@ -1,15 +1,5 @@
 <div class="top-nav">
   <div class="nav-cell" routerLink="/">Główna</div>
-  <!-- <div style="display: flex; flex: 1;align-items: baseline;">
-    <div style="width: 100%; background: white;" (mouseenter)='toggleSubMenu()' (mouseleave)='toggleSubMenu()'>
-      <div class="nav-cell">Informacje</div>
-      <div [hidden]='!showSubMenu'>
-        <div class="nav-cell" routerLink="/zagospodarowanie_terenu">Zagospodarowanie terenu</div>
-        <div class="nav-cell" routerLink="/plan">Plan Ogrodu</div>
-        <div class="nav-cell" routerLink="/parking">Parking</div>
-      </div>
-    </div>
-  </div> -->
   <div class="nav-cell" routerLink="/aktualnosci" routerLinkActive='active'>Aktualności</div>
   <div class="nav-cell" routerLink="/oplaty" routerLinkActive='active'>Opłaty</div>
   <div class="nav-cell" routerLink="/kontakt" routerLinkActive='active'>Kontakt</div>
@@ -18,19 +8,12 @@
 </div>
 
 <div class="top-nav-mobile">
-  <img src="assets/img/menu_mobile.svg" style="object-fit: contain; height: 50px;" (click)='toggleNav()'>
+  <div class="centered">
+    <img src="assets/img/menu_mobile.svg" style="object-fit: contain; height: 50px; width: 50px;" (click)='toggleNav()'>
+  </div>
   <div *ngIf="showMenu" class="top-nav-collapse">
     <div (click)="toggleNav()" routerLink="/">Główna</div>
     <div (click)="toggleNav()" routerLink="/aktualnosci">Aktualności</div>
-    <!-- <div (click)="toggleMobileSubMenu()">
-      Informacje
-      <img *ngIf='!showMobileSubMenu' src="assets/icons/keyboard_arrow_down-24px.svg">
-      <img *ngIf='showMobileSubMenu' src="assets/icons/keyboard_arrow_up-24px.svg">
-    </div>
-    <div class="sub-menu" *ngIf='showMobileSubMenu' (click)="toggleNav()" routerLink="/zagospodarowanie_terenu">
-      Zagospodarowanie terenu</div>
-    <div class="sub-menu" *ngIf='showMobileSubMenu' (click)="toggleNav()" routerLink="/plan">Plan Ogrodu</div>
-    <div class="sub-menu" *ngIf='showMobileSubMenu' (click)="toggleNav()" routerLink="/parking">Parking</div> -->
     <div (click)="toggleNav()" routerLink="/oplaty">Opłaty</div>
     <div (click)="toggleNav()" routerLink="/kontakt">Kontakt</div>
     <div (click)="toggleNav()" routerLink="/historia_ogrodu">Historia ogrodu</div>

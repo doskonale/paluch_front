@@ -4,3 +4,6 @@
     {{post.title}}
   </div>
 </div>
+<div *ngIf="isLoadingResults" class="loading-shade">
+  <mat-spinner mode="indeterminate" color="primary" [diameter]="30"></mat-spinner>
+</div>
