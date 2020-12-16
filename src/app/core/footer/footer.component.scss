@@ -1,10 +1,12 @@
+@import "/src/_variables.scss";
+
 :host {
   width: 100%;
   z-index: 1;
 }
 
 .footer {
-  background-color: rgb(53, 53, 53);
+  background-color: $base_color_dark;
   padding: 30px;
   color: white;
   display: flex;

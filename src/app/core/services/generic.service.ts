@@ -32,6 +32,10 @@ export abstract class GenericService<T> {
     return this.http.patch<T>(this.actionUrl + data.id + '/', data);
   }
 
+  public downloadFile(url): any {
+    return this.http.get(url, { responseType: 'blob' });
+  }
+
   public postFile(payload): Observable<T> {
     const formData: FormData = new FormData();
     if (payload.file && payload.file.name) {

@@ -46,6 +46,8 @@ import { CustomPaginator } from './core/shared/custom-pagination';
 import { NotificationPanelComponent } from './core/notification-panel/notification-panel.component';
 import { SideNavComponent } from './core/side-nav/side-nav.component';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { LawDocComponent } from './pages/law-doc/law-doc.component';
 
 
 @NgModule({
@@ -75,6 +77,7 @@ import { MatMenuModule } from '@angular/material/menu';
     ManageDialogComponent,
     NotificationPanelComponent,
     SideNavComponent,
+    LawDocComponent,
   ],
   imports: [
     BrowserModule,
@@ -88,6 +91,7 @@ import { MatMenuModule } from '@angular/material/menu';
     MatMenuModule,
     MatButtonModule,
     MatProgressBarModule,
+    MatCheckboxModule,
     MatInputModule,
     MatDialogModule,
     MatDatepickerModule,

@@ -24,6 +24,7 @@
     "classlist.js": "^1.1.20150312",
     "date-fns": "^2.16.1",
     "dayjs": "^1.9.7",
+    "file-saver": "^2.0.5",
     "ng-gallery": "^5.0.0",
     "ng2-pdf-viewer": "5.2.3",
     "ngx-quill": "^13.0.1",

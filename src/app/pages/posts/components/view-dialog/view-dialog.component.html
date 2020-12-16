@@ -1,9 +1,9 @@
 <div>
   <div class="flex-center">
-    {{post.title}}
+    {{tempPost.title}}
   </div>
   <br />
-  <div class="scroll-box">
+  <div *ngIf="post" class="scroll-box">
     <quill-view-html [content]="post.content"></quill-view-html>
   </div>
   <br />

@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlanComponent implements OnInit {
   pdfSrc = 'assets/documents/PLAN-ROD-Paluch-Miejski.pdf';
-  zoom = 0.2;
+  zoom = 0.3;
   constructor() { }
 
   ngOnInit(): void {

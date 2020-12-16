@@ -82,12 +82,6 @@
   background: $base_color_dark;
 }
 
-.sub-menu {
-  background:
-  linear-gradient(-90deg, transparent 99%,$base_color_light 0%),
-  linear-gradient(90deg, transparent 99%,$base_color_light 0%) !important
-}
-
 @media (max-width: 800px) {
   .top-nav-mobile {
     display: flex;

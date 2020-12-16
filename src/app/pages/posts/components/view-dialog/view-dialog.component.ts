@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject, OnInit, AfterViewInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { PostService } from 'src/app/core/services/generic.service';
 
@@ -7,17 +7,20 @@ import { PostService } from 'src/app/core/services/generic.service';
   templateUrl: './view-dialog.component.html',
   styleUrls: ['./view-dialog.component.scss'],
   providers: [PostService],
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ViewDialogComponent {
+export class ViewDialogComponent implements AfterViewInit {
   post;
+  tempPost;
 
   constructor(
     public dialogRef: MatDialogRef<ViewDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any, public postService: PostService) {
-      this.post = data;
-    }
+    this.tempPost = data;
+  }
 
+  ngAfterViewInit(): void {
+    this.post = this.tempPost;
+  }
 
   onNoClick(): void {
     this.dialogRef.close(null);

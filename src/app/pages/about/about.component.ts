@@ -22,22 +22,22 @@ export class AboutComponent implements OnInit {
   importantDates = [
     {
       date: '1966',
-      action: 'utworzenie ogrodu działkowego „PALUCH I” Wydzielenie Ogrodu Miejskiego o 610 działkach i powierzchni 22,32 ha.'
+      event: 'utworzenie ogrodu działkowego „PALUCH I” Wydzielenie Ogrodu Miejskiego o 610 działkach i powierzchni 22,32 ha.'
     },
-    { date: '1967', action: 'melioracja Ogrodu Miejskiego. ' },
-    { date: '1972', action: 'rozparcelowanie części terenów ogólnych Ogrodu. Liczba działek wzrosła do 744. ' },
-    { date: '1974', action: 'oficjalna rejestracja POD „PALUCH MIEJSKI”. ' },
-    { date: '1976', action: 'decyzja Urzędu m.st. Warszawy i Wojewódzkiego Zarządu POD o przydzieleniu POD „Paluch Miejski” terenu „PALUCH II”. Liczba działek wzrosła do 1024. ' },
-    { date: '1977', action: 'przebudowa budynku magazynowego. ' },
-    { date: '1979', action: 'wybudowanie nowej studni głębinowej nr 1, – rozpoczęcie budowy „Domu Działkowca”. ' },
-    { date: '1980', action: '28 wrzesień – uroczyste otwarcie „Domu Działkowca”. ' },
-    { date: '1996', action: 'założenie ogrodu przy „Domu Działkowca”. ' },
-    { date: '2004', action: 'wrzesień – ukazuje się pierwszy numer biuletynu ogrodowego „Nasz Ogród”. Komputeryzacja Biura. Zarządu Ogrodu. ' },
-    { date: '2005', action: '8. kwiecień – ustawienie na terenie Ogrodu krzyża w hołdzie Papieżowi Janowi Pawłowi II. remont generalny dachu „Domu Działkowca”. budowa nowego wodociągu, zaopatrującego w wodę. południową część Ogrodu. 8. lipiec – zostaje uchwalona nowa ustawa o rodzinnych. ogrodach działkowych. ' },
-    { date: '2006', action: 'remont generalny i przebudowa pomieszczeń Biura Zarządu Ogrodu w „Domu Działkowca”.' },
-    { date: '28.01.2011', action: 'spalony budynek zarządu ROD' },
-    { date: '2011 - 2012', action: ' Naprawa melioracji na ogrodzie' },
-    { date: 'IV.2020', action: 'Montaż nowych pomp w studni nr 1 i 4' },
+    { date: '1967', event: 'melioracja Ogrodu Miejskiego. ' },
+    { date: '1972', event: 'rozparcelowanie części terenów ogólnych Ogrodu. Liczba działek wzrosła do 744. ' },
+    { date: '1974', event: 'oficjalna rejestracja POD „PALUCH MIEJSKI”. ' },
+    { date: '1976', event: 'decyzja Urzędu m.st. Warszawy i Wojewódzkiego Zarządu POD o przydzieleniu POD „Paluch Miejski” terenu „PALUCH II”. Liczba działek wzrosła do 1024. ' },
+    { date: '1977', event: 'przebudowa budynku magazynowego. ' },
+    { date: '1979', event: 'wybudowanie nowej studni głębinowej nr 1, – rozpoczęcie budowy „Domu Działkowca”. ' },
+    { date: '1980', event: '28 wrzesień – uroczyste otwarcie „Domu Działkowca”. ' },
+    { date: '1996', event: 'założenie ogrodu przy „Domu Działkowca”. ' },
+    { date: '2004', event: 'wrzesień – ukazuje się pierwszy numer biuletynu ogrodowego „Nasz Ogród”. Komputeryzacja Biura. Zarządu Ogrodu. ' },
+    { date: '2005', event: '8. kwiecień – ustawienie na terenie Ogrodu krzyża w hołdzie Papieżowi Janowi Pawłowi II. remont generalny dachu „Domu Działkowca”. budowa nowego wodociągu, zaopatrującego w wodę. południową część Ogrodu. 8. lipiec – zostaje uchwalona nowa ustawa o rodzinnych. ogrodach działkowych. ' },
+    { date: '2006', event: 'remont generalny i przebudowa pomieszczeń Biura Zarządu Ogrodu w „Domu Działkowca”.' },
+    { date: '28.01.2011', event: 'spalony budynek zarządu ROD' },
+    { date: '2011 - 2012', event: ' Naprawa melioracji na ogrodzie' },
+    { date: 'IV.2020', event: 'Montaż nowych pomp w studni nr 1 i 4' },
   ];
 
   constructor() { }

@@ -13,7 +13,6 @@ import { MatDialog } from '@angular/material/dialog';
 export class NotificationPanelComponent implements AfterViewInit {
   @Input() showPopup = true;
   posts = [];
-  speed = 4;
   isLoadingResults = true;
 
   constructor(
@@ -27,7 +26,9 @@ export class NotificationPanelComponent implements AfterViewInit {
       this.posts = response.results;
       this.isLoadingResults = false;
       if (this.showPopup) {
-        this.openViewDialog(this.posts[0]);
+      this.posts.forEach(post => {
+          this.openViewDialog(post);
+        });
       }
     });
   }

@@ -21,6 +21,7 @@ export class AddDialogComponent implements AfterViewInit {
     content: null,
     start_date: null,
     end_date: null,
+    side_nav: null,
   };
 
   constructor(

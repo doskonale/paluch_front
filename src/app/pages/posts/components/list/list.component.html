@@ -3,8 +3,8 @@
     <div class="flex-sub-div"><small>Paluch, {{post.created | dateTimeTrimmer}}</small></div>
     <div class="flex-main-div">{{post.title}}</div>
     <div class="flex-sub-div flex-center">
-      <img *appAuthUser src="assets/icons/delete-24px_color.svg" (click)="openDeleteDialog(post)">
-      <img *appAuthUser src="assets/icons/create-24px.svg" (click)="openManageDialog(post)">
+      <img class="ligth-icon" *appAuthUser src="assets/icons/delete-24px_color.svg" (click)="openDeleteDialog(post)">
+      <img class="ligth-icon" *appAuthUser src="assets/icons/create-24px.svg" (click)="openManageDialog(post)">
     </div>
 
   </div>

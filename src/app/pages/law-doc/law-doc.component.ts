@@ -7,12 +7,13 @@ import { DeleteDialogComponent } from 'src/app/core/shared/components/delete-dia
 import { FileUploadService } from 'src/app/core/shared/services/file-upload.service';
 
 @Component({
-  selector: 'app-templates',
-  templateUrl: './templates.component.html',
-  styleUrls: ['./templates.component.scss'],
+  selector: 'app-law-doc',
+  templateUrl: './law-doc.component.html',
+  styleUrls: ['./law-doc.component.scss'],
   providers: [FileService, FileUploadService]
 })
-export class TemplatesComponent implements AfterViewInit {
+export class LawDocComponent implements AfterViewInit {
+
   fileToUpload: File = null;
   files = [];
   isLoadingResults = false;
@@ -32,10 +33,10 @@ export class TemplatesComponent implements AfterViewInit {
 
   getFiles(): void {
     this.isLoadingResults = true;
-    this.fileService.get('?type=doc').pipe(
+    this.fileService.get('?type=law').pipe(
       expand(({ next }) => next ? (
-      next = next.slice(fileUrl.length, next.length),
-      this.fileService.get(next)) : empty()),
+        next = next.slice(fileUrl.length, next.length),
+        this.fileService.get(next)) : empty()),
       reduce((acc, response) => acc.concat(response.results), [])
     ).subscribe(res => {
       this.files = res;

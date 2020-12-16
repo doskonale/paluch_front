@@ -5,4 +5,8 @@
   <div class="tile" [routerLink]="['/parking']">Parking</div>
   <div class="tile" [routerLink]="['/zagospodarowanie_terenu']">Plan zagospodarowania</div>
   <div class="tile" [routerLink]="['/plan']">Plan ogrodu</div>
+  <div class="tile" *ngFor="let post of posts">{{post.title}}</div>
+</div>
+<div *ngIf="isLoadingResults" class="loading-shade">
+  <mat-spinner mode="indeterminate" color="primary" [diameter]="30"></mat-spinner>
 </div>

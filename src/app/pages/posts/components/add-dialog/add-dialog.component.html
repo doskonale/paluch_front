@@ -49,10 +49,12 @@
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-date-range-picker #picker></mat-date-range-picker>
       </mat-form-field>
+      <mat-checkbox [(ngModel)]="post.side_nav">Dodaj do bocznego menu</mat-checkbox>
     </div>
   </div>
   <div mat-dialog-actions class="flex-container">
-    <button [disabled]="!post.title || success || isLoadingResults" mat-button color="primary" cdkFocusInitial (click)="addPost()">
+    <button [disabled]="!post.title || success || isLoadingResults" mat-button color="primary" cdkFocusInitial
+      (click)="addPost()">
       <span *ngIf="!isLoadingResults && !success">Dodaj</span>
       <span *ngIf="!isLoadingResults && success">Dodano</span>
       <mat-spinner *ngIf="isLoadingResults" mode="indeterminate" color="primary" [diameter]="30"></mat-spinner>
@@ -60,4 +62,4 @@
     <button mat-button (click)="onNoClick()">Zamknij</button>
   </div>
   <div *ngIf="errorMessage">{{errorMessage}}</div>
-<div>
+  <div>
