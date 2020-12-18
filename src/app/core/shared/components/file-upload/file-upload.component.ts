@@ -31,7 +31,6 @@ export class FileUploadComponent {
       this.fileToUpload = null;
       this.isLoadingResults = false;
     }, error => {
-      console.log(error);
       this.isLoadingResults = false;
     });
   }

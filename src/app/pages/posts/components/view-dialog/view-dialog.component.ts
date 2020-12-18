@@ -8,7 +8,7 @@ import { PostService } from 'src/app/core/services/generic.service';
   styleUrls: ['./view-dialog.component.scss'],
   providers: [PostService],
 })
-export class ViewDialogComponent implements AfterViewInit {
+export class ViewDialogComponent implements OnInit {
   post;
   tempPost;
 
@@ -18,7 +18,7 @@ export class ViewDialogComponent implements AfterViewInit {
     this.tempPost = data;
   }
 
-  ngAfterViewInit(): void {
+  ngOnInit(): void {
     this.post = this.tempPost;
   }
 

@@ -1,10 +1,21 @@
 <p>Opłaty</p>
-<table>
-  <tr *ngFor="let element of files">
-    <td>{{element.file | fileName}}</td>
-    <td><a mat-button color="primary" href="{{element.file}}" target="_blank">Otwórz</a></td>
-    <td><button *appAuthUser mat-button color="warn" (click)="openDeleteDialog(element)">Usuń <img src="assets/icons/delete-24px.svg"></button></td>
-  </tr>
+
+<table *ngIf="!isLoadingResults">
+    <tr *ngFor="let element of files">
+      <td>{{element.file | fileName}}</td>
+      <td><a mat-button color="primary" href="{{element.file}}" target="_blank">Otwórz</a></td>
+      <td><button *appAuthUser mat-button color="warn" (click)="openDeleteDialog(element)">Usuń
+          <img src="assets/icons/delete-24px.svg"></button></td>
+    </tr>
+    <tr>
+      <td colspan="3" *ngFor="let file of files">
+        <pdf-viewer [src]="file.file" [render-text]="true"></pdf-viewer>
+      </td>
+    </tr>
 </table>
+
 <app-file-upload *appAuthUser [type]="'doc'" [module]="'templates'"></app-file-upload>
 <div *ngIf="!files.length">Brak dokumentów</div>
+<div *ngIf="isLoadingResults" class="loading-shade">
+  <mat-spinner mode="indeterminate" color="primary" [diameter]="30"></mat-spinner>
+</div>

@@ -7,4 +7,13 @@
 }
 table {
   border-spacing: 5px;
+  overflow: auto;
+  display: inline-block;
+}
+
+
+@media (max-width: 900px) {
+  table {
+    width: 100%;
+  }
 }

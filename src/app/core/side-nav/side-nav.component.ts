@@ -10,7 +10,7 @@ import { PostService } from '../services/generic.service';
   providers: [PostService]
 })
 export class SideNavComponent implements AfterViewInit {
-  @Input() showPopup = true;
+  @Input() getData = true;
   posts = [];
   isLoadingResults = true;
 
@@ -20,10 +20,14 @@ export class SideNavComponent implements AfterViewInit {
   ) { }
 
   ngAfterViewInit(): void {
-    this.postService.get('?side_nav=true').subscribe(response => {
-      this.posts = response.results;
+    if (this.getData) {
+      this.postService.get('?side_nav=true').subscribe(response => {
+        this.posts = response.results;
+        this.isLoadingResults = false;
+      });
+    } else {
       this.isLoadingResults = false;
-    });
+    }
   }
 
   openViewDialog(post): void {

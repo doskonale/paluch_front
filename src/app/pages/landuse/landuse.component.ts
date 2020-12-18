@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LanduseComponent implements OnInit {
   pdfSrc = 'assets/documents/ZAGOSPODAROWANIE-DZIAŁKI.pdf';
-  zoom = 0.8;
+  zoom = 1;
   constructor() { }
 
   ngOnInit(): void {

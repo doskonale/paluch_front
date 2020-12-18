@@ -1,26 +1,23 @@
 <div class="container">
-
   <app-header></app-header>
   <app-top-nav></app-top-nav>
   <div class="content">
-    <div class="side-nav">
+    <div *ngIf="!mobile" class="side-nav">
       <app-notification-panel></app-notification-panel>
     </div>
-    <div class="main-content">
-      <div class="mobile-left">
+    <main class="main-content">
+      <div *ngIf="mobile" class="mobile-left">
         <button mat-mini-fab [matMenuTriggerFor]="menu">
           <img src="assets/icons/more_vert-24px.svg" />
         </button>
         <mat-menu #menu="matMenu">
-          <app-notification-panel [showPopup]="false"></app-notification-panel>
+          <app-notification-panel></app-notification-panel>
           <app-side-nav></app-side-nav>
         </mat-menu>
       </div>
-
-
       <router-outlet></router-outlet>
-    </div>
-    <div class="side-nav">
+    </main>
+    <div *ngIf="!mobile" class="side-nav">
       <app-side-nav></app-side-nav>
     </div>
   </div>

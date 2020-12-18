@@ -15,7 +15,7 @@ import { FileUploadService } from 'src/app/core/shared/services/file-upload.serv
 export class TemplatesComponent implements AfterViewInit {
   fileToUpload: File = null;
   files = [];
-  isLoadingResults = false;
+  isLoadingResults = true;
 
   constructor(
     public fileService: FileService,
@@ -31,7 +31,6 @@ export class TemplatesComponent implements AfterViewInit {
   }
 
   getFiles(): void {
-    this.isLoadingResults = true;
     this.fileService.get('?type=doc').pipe(
       expand(({ next }) => next ? (
       next = next.slice(fileUrl.length, next.length),
@@ -41,7 +40,6 @@ export class TemplatesComponent implements AfterViewInit {
       this.files = res;
       this.isLoadingResults = false;
     }, error => {
-      console.log(error);
       this.isLoadingResults = false;
     });
   }

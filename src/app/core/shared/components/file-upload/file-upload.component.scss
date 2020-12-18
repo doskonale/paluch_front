@@ -1,3 +1,5 @@
+@import "/src/_variables.scss";
+
 :host {
   padding: 5px;
   display: flex;
@@ -14,14 +16,4 @@
 	overflow: hidden;
 	position: absolute;
 	z-index: -1;
-}
-
-.loading-shade {
-  background: rgba(238, 238, 238, 0.7);
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }

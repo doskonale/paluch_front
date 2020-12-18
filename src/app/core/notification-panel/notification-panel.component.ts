@@ -12,6 +12,7 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class NotificationPanelComponent implements AfterViewInit {
   @Input() showPopup = true;
+  @Input() getData = true;
   posts = [];
   isLoadingResults = true;
 
@@ -22,15 +23,19 @@ export class NotificationPanelComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     const currentDate = DateToISOStringReverse(new Date());
-    this.postService.get('?start_date__lte=' + currentDate + '&end_date__gte=' + currentDate).subscribe(response => {
-      this.posts = response.results;
+    if (this.getData) {
+      this.postService.get('?start_date__lte=' + currentDate + '&end_date__gte=' + currentDate).subscribe(response => {
+        this.posts = response.results;
+        this.isLoadingResults = false;
+        if (this.showPopup) {
+          this.posts.forEach(post => {
+            this.openViewDialog(post);
+          });
+        }
+      });
+    } else {
       this.isLoadingResults = false;
-      if (this.showPopup) {
-      this.posts.forEach(post => {
-          this.openViewDialog(post);
-        });
-      }
-    });
+    }
   }
 
   openViewDialog(post): void {

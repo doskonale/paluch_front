@@ -1,5 +1,5 @@
 <p>Prawo i dokumenty</p>
-<table>
+<table *ngIf="!isLoadingResults">
   <tr *ngFor="let element of files">
     <td>{{element.file | fileName}}</td>
     <td><a mat-button color="primary" href="{{element.file}}" target="_blank">Otwórz</a></td>
@@ -8,3 +8,6 @@
 </table>
 <app-file-upload *appAuthUser [type]="'law'" [module]="'templates'"></app-file-upload>
 <div *ngIf="!files.length">Brak dokumentów</div>
+<div *ngIf="isLoadingResults" class="loading-shade">
+  <mat-spinner mode="indeterminate" color="primary" [diameter]="30"></mat-spinner>
+</div>

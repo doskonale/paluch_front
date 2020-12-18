@@ -16,7 +16,6 @@ export abstract class GenericService<T> {
 
   public get(urlFilter?: string): Observable<T> {
     const url = urlFilter ? this.actionUrl + urlFilter : this.actionUrl;
-    console.log(url)
     return this.http.get<T>(url);
   }
 

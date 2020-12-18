@@ -47,7 +47,6 @@ export class GalleryComponent implements AfterViewInit {
       this.convertImgs();
       this.isLoadingResults = false;
     }, error => {
-      console.log(error);
       this.isLoadingResults = false;
     });
   }

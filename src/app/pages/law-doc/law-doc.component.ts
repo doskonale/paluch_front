@@ -16,7 +16,7 @@ export class LawDocComponent implements AfterViewInit {
 
   fileToUpload: File = null;
   files = [];
-  isLoadingResults = false;
+  isLoadingResults = true;
 
   constructor(
     public fileService: FileService,
@@ -32,7 +32,6 @@ export class LawDocComponent implements AfterViewInit {
   }
 
   getFiles(): void {
-    this.isLoadingResults = true;
     this.fileService.get('?type=law').pipe(
       expand(({ next }) => next ? (
         next = next.slice(fileUrl.length, next.length),
@@ -42,7 +41,6 @@ export class LawDocComponent implements AfterViewInit {
       this.files = res;
       this.isLoadingResults = false;
     }, error => {
-      console.log(error);
       this.isLoadingResults = false;
     });
   }

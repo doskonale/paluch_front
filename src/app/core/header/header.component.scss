@@ -32,15 +32,8 @@
   align-items: center;
   justify-content: center;
 }
-.img-pzd {
-  width: 35%;
-}
-.img-waw {
-  width: 4vw;
-  height: 7vw;
-}
 
-@media (max-width: 800px) {
+@media (max-width: 900px) {
   .header-logo {
     display: none;
   }
