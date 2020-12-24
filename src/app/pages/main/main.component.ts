@@ -13,7 +13,7 @@ export class MainComponent implements OnInit {
     { key: 'Liczba działek', value: '1044' },
     { key: 'Powierzchnia działek', value: '32,47 ha' },
     { key: 'Obszar objęty nawodnieniem', value: '22,27 ha' },
-    { key: 'Liczba działek z nawodnieniem', value: '641' },
+    { key: 'Liczba działek z nawodnieniem', value: '800' },
     { key: 'Długość rurociągów wodnych', value: '7,9 km' },
     { key: 'Liczba studni głębinowych', value: '3' },
     { key: 'Wydajność studni (łączna)', value: '30 m3/h' },

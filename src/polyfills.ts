@@ -1,7 +1,5 @@
 import 'classlist.js';  // Run `npm install --save classlist.js`.
 import 'web-animations-js';  // Run `npm install --save web-animations-js`.
-import 'zone.js/dist/zone';  // Included with Angular CLI.
-import 'core-js/es/symbol';
 import 'core-js/es/object';
 import 'core-js/es/function';
 import 'core-js/es/parse-int';
@@ -17,4 +15,6 @@ import 'core-js/stable';
 import 'core-js/es/weak-map';
 import 'core-js/es/set';
 import 'core-js/proposals/reflect-metadata';
+import '@babel/polyfill';
+import 'zone.js/dist/zone';  // Included with Angular CLI.
 
